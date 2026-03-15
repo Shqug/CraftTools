@@ -1,0 +1,37 @@
+
+[General]
+# Set to false to disable the built-in recipes for all tools using items from the 'default' mod of MTG
+crafttools.enable_default_recipes (Enable Default Recipes) bool true
+
+[Hand Tools]
+# The maximum number of times that the Small Hammer can be crafted with before breaking
+crafttools.hammer_max_uses (Small Hammer: Maximum Uses) int 250
+
+# The maximum number of times that the Metal File can be crafted with before breaking
+crafttools.file_max_uses (Metal File: Maximum Uses) int 150
+
+# The maximum number of times that the Hand Drill can be crafted with before breaking
+crafttools.drill_max_uses (Hand Drill: Maximum Uses) int 200
+
+# The maximum number of times that the Metal Cutters can be crafted with before breaking
+crafttools.cutters_max_uses (Metal Cutters: Maximum Uses) int 250
+
+# The maximum number of times that the Wrench can be crafted with before breaking
+crafttools.wrench_max_uses (Wrench: Maximum Uses) int 200
+
+# The maximum number of times that the Knife can be crafted with before breaking
+crafttools.knife_max_uses (Knife: Maximum Uses) int 200
+
+[Consumables]
+# The maximum number of times that Glue can be crafted with before breaking
+crafttools.glue_max_uses (Glue: Maximum Uses) int 20
+
+# The maximum number of times that Tape can be crafted with before breaking
+crafttools.tape_max_uses (Tape: Maximum Uses) int 30
+
+[Toolbox]
+# Set to false to disable the toolbox, which can be used in place of any hand tool
+crafttools.enable_toolbox (Enable Toolbox) bool true
+
+# The maximum number of times that the Toolbox can be crafted with before breaking
+crafttools.toolbox_max_uses (Toolbox: Maximum Uses) int 1300
