@@ -52,6 +52,10 @@ Aside from the aesthetic difference of the wear bar VS the remaining uses counte
 
 Basically if you want your item to be repairable, it should be a craft tool, and if it gets used up and shouldn't be able to be repaired it should be a reusable consumable.
 
+## Contributions
+
+I will accept ideas for new tools/consumables to add to the mod and new functionality for the system itself via GitHub issues. Read `.dev/TO DO.md` and `.dev/IDEAS LIST.md` first to make sure your idea isn't already planned or being considered. Pull requests for translations and bug fixes can be made directly.
+
 ## Licensing
 
 (C) Shqug 2026
