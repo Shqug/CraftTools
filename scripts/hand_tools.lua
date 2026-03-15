@@ -134,5 +134,23 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 		crafttools.register_reuse_exception('crafttools:cutters', 'crafttools:toolbox')
 		crafttools.register_reuse_exception('crafttools:wrench', 'crafttools:toolbox')
 		crafttools.register_reuse_exception('crafttools:knife', 'crafttools:toolbox')
+		
+		core.register_craft {
+			recipe = {
+				{'crafttools:toolbox', '', 'default:steel_ingot'},
+				{'default:bronze_ingot', 'default:steel_ingot', ''},
+				{'default:stick', '', ''}
+			},
+			output = 'crafttools:knife'
+		}
+		
+		core.register_craft {
+			recipe = {
+				{'crafttools:toolbox', 'default:steel_ingot', ''},
+				{'default:stick', 'default:bronze_ingot', 'default:steel_ingot'},
+				{'', 'default:stick', ''}
+			},
+			output = 'crafttools:cutters'
+		}
 	end
 end
