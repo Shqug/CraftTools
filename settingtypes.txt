@@ -43,4 +43,4 @@ crafttools.tape_max_uses (Tape: Maximum Uses) int 30
 crafttools.enable_toolbox (Enable Toolbox) bool true
 
 # The maximum number of times that the Toolbox can be crafted with before breaking
-crafttools.toolbox_max_uses (Toolbox: Maximum Uses) int 1150
+crafttools.toolbox_max_uses (Toolbox: Maximum Uses) int 1850

@@ -148,7 +148,7 @@ if enable_recipes then
 end
 
 if core.settings: get_bool('crafttools.enable_toolbox', true) then
-	crafttools.register_tool('crafttools:toolbox', core.settings: get 'crafttools.toolbox_max_uses' or 1400, {
+	crafttools.register_tool('crafttools:toolbox', core.settings: get 'crafttools.toolbox_max_uses' or 1850, {
 		description = crafttools.gettext 'Toolbox',
 		inventory_image = 'crafttools_toolbox.png',
 		groups = {
