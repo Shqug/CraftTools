@@ -22,6 +22,9 @@ crafttools.wrench_max_uses (Wrench: Maximum Uses) int 200
 # The maximum number of times that the Knife can be crafted with before breaking
 crafttools.knife_max_uses (Knife: Maximum Uses) int 200
 
+# How much damage the Knife deals per full swing
+crafttools.knife_attack_damage (Knife: Attack Damage) int 3
+
 # The maximum number of times that the Hand Saw can be crafted with before breaking
 crafttools.saw_max_uses (Hand Saw: Maximum Uses) int 250
 

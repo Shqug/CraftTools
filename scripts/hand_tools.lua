@@ -86,10 +86,20 @@ if enable_recipes then
 	}
 end
 
-crafttools.register_tool('crafttools:knife', core.settings: get 'crafttools.knife_max_uses' or 200, {
+local knife_uses = core.settings: get 'crafttools.knife_max_uses' or 200
+
+crafttools.register_tool('crafttools:knife', knife_uses, {
 	description = crafttools.gettext 'Knife',
 	inventory_image = 'crafttools_knife.png',
-	groups = {craft_tool_knife = 1}
+	groups = {craft_tool_knife = 1},
+	tool_capabilities = {
+		full_punch_interval = 0.6,
+		max_drop_level = 0,
+		groupcaps = {
+			snappy = {times = {[2] = 1, [3] = 0.25}, uses = knife_uses, maxlevel = 1},
+		},
+		damage_groups = {fleshy = core.settings: get 'crafttools.knife_attack_damage' or 3}
+	}
 })
 
 if enable_recipes then

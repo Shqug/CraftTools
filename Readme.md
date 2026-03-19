@@ -15,7 +15,7 @@ The following hand tools are available:
  - 'Hand Drill': For making holes in various materials including stone, wood, metal, etc.
  - 'Metal Cutters': For cutting sheet metal, wires, ropes & cables, and fabric.
  - 'Wrench': For configuring, repairing, and dismantling mechanical devices.
- - 'Knife': For any sort of slicing, carving, gouging, and stabbing.
+ - 'Knife': For any sort of slicing, carving, gouging, and stabbing. Also a fast, low damage melee weapon.
  - 'Hand Saw': For cutting wood and metal.
 
 As well as the following reusable consumables:

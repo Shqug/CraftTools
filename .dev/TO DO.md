@@ -10,5 +10,5 @@ All of these features will be included in the mod in some form at some point, bu
 ## Functionality
 
  - [x] Marker for tools that causes them to not break on their last use, and instead become unusable until repaired (or recharged, for power tools)
- - [ ] Definition field for consumables (and tools?) allowing their `inventory_image` texture to change via meta based on their remaining uses
+ - [ ] Definition field for consumables allowing their `inventory_image` texture to change via meta based on their remaining uses
  - [ ] Ability to have non-crafttool tools be treated as a craft tool for single recipes
