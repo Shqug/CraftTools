@@ -48,7 +48,7 @@ Aside from registering items as craft tools and reusable consumables, you can al
 
 ## What's the difference between craft tools and reusable consumables? When should I make an item a consumable instead of a tool?
 
-Aside from the aesthetic difference of the wear bar VS the remaining uses counter and that tools make a breaking sound once fully used up, the primary functional distinction between craft tools and reusable consumables is that craft tools are registered as tool items in the engine, meaning they use the same wear/durability system as normal tools and can be repaired if another mod introduces some method of repairing tools. Reusable consumables don't use actual wear (and are not actually tools at all) and so they can't be repaired in any way.
+Apart from the aesthetic difference of the wear bar VS the remaining uses counter and that tools make a breaking sound once fully used up, the primary functional distinction between craft tools and reusable consumables is that craft tools are registered as tool items in the engine, meaning they use the same wear/durability system as normal tools and can be repaired if another mod introduces some method of repairing tools. Reusable consumables don't use actual wear (and are not actually tools at all) and so they can't be repaired in any way.
 
 Basically if you want your item to be repairable, it should be a craft tool, and if it gets used up and shouldn't be able to be repaired it should be a reusable consumable.
 
