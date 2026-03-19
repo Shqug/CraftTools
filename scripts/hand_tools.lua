@@ -104,7 +104,7 @@ if enable_recipes then
 end
 
 if core.settings: get_bool('crafttools.enable_toolbox', true) then
-	crafttools.register_tool('crafttools:toolbox', core.settings: get 'crafttools.toolbox_max_uses' or 1300, {
+	crafttools.register_tool('crafttools:toolbox', core.settings: get 'crafttools.toolbox_max_uses' or 1150, {
 		description = crafttools.gettext 'Toolbox',
 		inventory_image = 'crafttools_toolbox.png',
 		groups = {
@@ -112,8 +112,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			craft_tool_drill = 1,
 			craft_tool_hammer = 1,
 			craft_tool_cutters = 1,
-			craft_tool_wrench = 1,
-			craft_tool_knife = 1
+			craft_tool_wrench = 1
 		}
 	})
 
@@ -122,7 +121,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			type = 'shapeless',
 			recipe = {
 				'crafttools:file', 'crafttools:drill', 'crafttools:hammer',
-				'crafttools:cutters', 'crafttools:wrench', 'crafttools:knife',
+				'crafttools:cutters', 'crafttools:wrench',
 				'default:chest_locked'
 			},
 			output = 'crafttools:toolbox'
@@ -133,7 +132,6 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 		crafttools.register_reuse_exception('crafttools:hammer', 'crafttools:toolbox')
 		crafttools.register_reuse_exception('crafttools:cutters', 'crafttools:toolbox')
 		crafttools.register_reuse_exception('crafttools:wrench', 'crafttools:toolbox')
-		crafttools.register_reuse_exception('crafttools:knife', 'crafttools:toolbox')
 		
 		core.register_craft {
 			recipe = {

@@ -22,7 +22,7 @@ As well as the following reusable consumables:
  - 'Glue': Specially formulated K-Brand kelp superglue for binding and adhering all sorts of things.
  - 'Tape': Used to add tension and structural strength while also binding things together and sealing gaps.
 
-There is also a 'Toolbox', which combines the functionality of all the hand tools while having a little more durability than all of them put together.
+There is also a 'Toolbox', which combines the functionality of all the hand tools other than the knife while having a little more durability than all of them put together.
 
 ## API
 
