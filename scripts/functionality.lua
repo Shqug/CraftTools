@@ -1,5 +1,6 @@
 
 local craft_tool_description = core.colorize('#ff8c00', crafttools.gettext 'Crafting tool: reusable in recipes')
+local consumable_description = core.colorize('#ff8c00', crafttools.gettext 'Multi-use crafting ingredient')
 
 local consumable_uses_colors = {
 	{'#b61616', 0},
@@ -107,7 +108,7 @@ function crafttools.register_tool (name, uses, def)
 end
 
 function crafttools.register_consumable (name, uses, def)
-	def.description = (def.description or '') .. '\n' .. craft_tool_description
+	def.description = (def.description or '') .. '\n' .. consumable_description
 	def.groups = def.groups or {}
 	def.groups.crafttools_tool_type = 2
 	def.groups.crafttools_tool_uses = uses
