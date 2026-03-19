@@ -36,6 +36,8 @@ crafttools.register_tool(name, uses, def)
 Where `name` is the itemname in the format `modname:item`, `uses` is the number of times the tool can be crafted with before breaking, and `def` is a normal tool item definition.
   Consumables are registered in the same way using the `crafttools.register_consumable` function which has the same parameter format as the function for registering tools. Keep in mind that the consumable definition is for a craftitem, not a tool, so tool-specific properties will be ignored.
 
+If a tool definition contains the `wear_represents` field indicating that its' wear bar is used for something other than durability (like fuel or power charge) the tool will not break once fully worn out and will instead become unusable until recharged or refuelled. This feature can be used to create rechargeable power tools and the like, as well as tools where the wear bar represents the item being full of a substance such as a liquid. Keep in mind that some mods implementing repair systems will ignore `wear_represents` as it is an unofficial convention and not an engine rule.
+
 If you want to create a recipe in which a craft tool or reusable consumable is completely used up in one craft, you can use this function:
 
 ```lua

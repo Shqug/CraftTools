@@ -28,17 +28,23 @@ crafttools.on_craft_exceptions = {}
 
 core.register_on_craft(function (crafted, player, old_craft_grid, craft_inv)
 	for index, item in ipairs(old_craft_grid) do
-		local itemname = item: get_name()
-		local tooltype = core.get_item_group(itemname, 'crafttools_tool_type')
-		local uses     = core.get_item_group(itemname, 'crafttools_tool_uses')
+		local itemname    = item: get_name()
+		local tooltype    = core.get_item_group(itemname, 'crafttools_tool_type')
+		local uses        = core.get_item_group(itemname, 'crafttools_tool_uses')
+		local unbreakable = core.get_item_group(itemname, 'crafttools_tool_unbreakable') == 1
 		
 		if not (crafttools.on_craft_exceptions[itemname] and crafttools.on_craft_exceptions[itemname][crafted: get_name()]) then
 			if tooltype == 1 then -- A tool
 				local wear = item: get_wear()
 				wear = wear + math.ceil(65535 / uses)
 				
-				if wear >= 65536 then
-					if default then core.sound_play({name = 'default_tool_breaks'}, {to_player = player: get_player_name()}, true) end
+				if wear >= 65535 then
+					if unbreakable then
+						item: set_wear(65534)
+						craft_inv: set_stack('craft', index, item)
+					else
+						if default then core.sound_play({name = 'default_tool_breaks'}, {to_player = player: get_player_name()}, true) end
+					end
 				else
 					item: set_wear(wear)
 					craft_inv: set_stack('craft', index, item)
@@ -60,7 +66,13 @@ end)
 -- Ensure only unused consumables & tools can be used in recipes that use the entire item
 core.register_craft_predict(function (crafted, player, old_craft_grid, craft_inv)
 	for index, item in ipairs(old_craft_grid) do
-		local itemname = item: get_name()
+		local itemname    = item: get_name()
+		local unbreakable = core.get_item_group(itemname, 'crafttools_tool_unbreakable') == 1
+		
+		if unbreakable and item: get_wear() >= 65534 then
+			return ''
+		end
+		
 		if crafttools.on_craft_exceptions[itemname] and crafttools.on_craft_exceptions[itemname][crafted: get_name()] then
 			local meta = item: get_meta()
 			local used = meta: get_int 'crafttools_consumable_used' or 0
@@ -85,10 +97,11 @@ local tool_wear_color = {
 
 function crafttools.register_tool (name, uses, def)
 	def.description = (def.description or '') .. '\n' .. craft_tool_description
-	def.wear_color = tool_wear_color
+	def.wear_color = def.wear_color or tool_wear_color
 	def.groups = def.groups or {}
 	def.groups.crafttools_tool_type = 1
 	def.groups.crafttools_tool_uses = uses
+	if def.wear_represents ~= nil then def.groups.crafttools_tool_unbreakable = 1 end
 	
 	core.register_tool(':' .. name, def)
 end
@@ -103,6 +116,7 @@ function crafttools.register_consumable (name, uses, def)
 	core.register_craftitem(':' .. name, def)
 end
 
+-- Initially set count_meta and count_alignment for reusable consumables on craft
 core.register_on_craft(function (item, player, old_craft_grid, craft_inv)
 	local itemname = item: get_name()
 	local tooltype = core.get_item_group(itemname, 'crafttools_tool_type')
