@@ -17,6 +17,7 @@ The following hand tools are available:
  - 'Wrench': For configuring, repairing, and dismantling mechanical devices.
  - 'Knife': For any sort of slicing, carving, gouging, and stabbing. Also a fast, low damage melee weapon.
  - 'Hand Saw': For cutting wood and metal.
+ - 'Chisel': For shaping wood and stone, and crafting variants of decorative nodes.
 
 As well as the following reusable consumables:
 drill.

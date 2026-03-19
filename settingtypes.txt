@@ -28,6 +28,9 @@ crafttools.knife_attack_damage (Knife: Attack Damage) int 3
 # The maximum number of times that the Hand Saw can be crafted with before breaking
 crafttools.saw_max_uses (Hand Saw: Maximum Uses) int 250
 
+# The maximum number of times that the Chisel can be crafted with before breaking
+crafttools.chisel_max_uses (Chisel: Maximum Uses) int 300
+
 [Consumables]
 # The maximum number of times that Glue can be crafted with before breaking
 crafttools.glue_max_uses (Glue: Maximum Uses) int 20

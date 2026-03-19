@@ -130,7 +130,22 @@ if enable_recipes then
 	}
 end
 
+crafttools.register_tool('crafttools:chisel', core.settings: get 'crafttools.chisel_max_uses' or 300, {
+	description = crafttools.gettext 'Chisel',
+	inventory_image = 'crafttools_chisel.png',
+	groups = {craft_tool_chisel = 1}
+})
 
+if enable_recipes then
+	core.register_craft {
+		recipe = {
+			{'default:steel_ingot', 'group:craft_tool_file', ''},
+			{'', 'default:bronze_ingot', ''},
+			{'', '', 'default:stick'}
+		},
+		output = 'crafttools:chisel'
+	}
+end
 
 if core.settings: get_bool('crafttools.enable_toolbox', true) then
 	crafttools.register_tool('crafttools:toolbox', core.settings: get 'crafttools.toolbox_max_uses' or 1400, {
@@ -143,6 +158,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			craft_tool_cutters = 1,
 			craft_tool_wrench = 1,
 			craft_tool_saw = 1,
+			craft_tool_chisel = 1
 		}
 	})
 
@@ -152,7 +168,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			recipe = {
 				'crafttools:file', 'crafttools:drill', 'crafttools:hammer',
 				'crafttools:cutters', 'default:chest_locked', 'crafttools:wrench',
-				'crafttools:saw'
+				'crafttools:saw', 'crafttools:chisel'
 				
 			},
 			output = 'crafttools:toolbox'
@@ -164,6 +180,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 		crafttools.register_reuse_exception('crafttools:cutters', 'crafttools:toolbox')
 		crafttools.register_reuse_exception('crafttools:wrench', 'crafttools:toolbox')
 		crafttools.register_reuse_exception('crafttools:saw', 'crafttools:toolbox')
+		crafttools.register_reuse_exception('crafttools:chisel', 'crafttools:toolbox')
 		
 		core.register_craft {
 			recipe = {
