@@ -20,7 +20,6 @@ The following hand tools are available:
  - 'Chisel': For shaping wood and stone, and crafting variants of decorative nodes.
 
 As well as the following reusable consumables:
-drill.
  - 'Glue': Specially formulated K-Brand kelp superglue for binding and adhering all sorts of things.
  - 'Tape': Used to add tension and structural strength while also binding things together and sealing gaps.
 
