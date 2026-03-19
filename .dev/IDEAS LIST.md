@@ -8,7 +8,6 @@ Most of these concepts will probably make it into the mod at some point, althoug
  - Boxes of nails / nuts and bolts as consumables
  - 'Chisel' tool
  - 'Ink & Quill' consumable for making books, notes, labels (Tool instead, non-breaking, refill recipe?)
- - 'Hatchet' tool for crafting with wood
  - Ability to separate intact toolbox back into constituent tools
 
 ## Functionality

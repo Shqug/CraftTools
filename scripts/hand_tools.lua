@@ -103,8 +103,27 @@ if enable_recipes then
 	}
 end
 
+crafttools.register_tool('crafttools:saw', core.settings: get 'crafttools.saw_max_uses' or 250, {
+	description = crafttools.gettext 'Hand Saw',
+	inventory_image = 'crafttools_saw.png',
+	groups = {craft_tool_saw = 1}
+})
+
+if enable_recipes then
+	core.register_craft {
+		recipe = {
+			{'default:steel_ingot', 'default:steel_ingot', ''},
+			{'', 'default:bronze_ingot', 'group:craft_tool_hammer'},
+			{'group:craft_tool_cutters', '', 'default:stick'}
+		},
+		output = 'crafttools:saw'
+	}
+end
+
+
+
 if core.settings: get_bool('crafttools.enable_toolbox', true) then
-	crafttools.register_tool('crafttools:toolbox', core.settings: get 'crafttools.toolbox_max_uses' or 1150, {
+	crafttools.register_tool('crafttools:toolbox', core.settings: get 'crafttools.toolbox_max_uses' or 1400, {
 		description = crafttools.gettext 'Toolbox',
 		inventory_image = 'crafttools_toolbox.png',
 		groups = {
@@ -112,7 +131,8 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			craft_tool_drill = 1,
 			craft_tool_hammer = 1,
 			craft_tool_cutters = 1,
-			craft_tool_wrench = 1
+			craft_tool_wrench = 1,
+			craft_tool_saw = 1,
 		}
 	})
 
@@ -121,8 +141,9 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			type = 'shapeless',
 			recipe = {
 				'crafttools:file', 'crafttools:drill', 'crafttools:hammer',
-				'crafttools:cutters', 'crafttools:wrench',
-				'default:chest_locked'
+				'crafttools:cutters', 'default:chest_locked', 'crafttools:wrench',
+				'crafttools:saw'
+				
 			},
 			output = 'crafttools:toolbox'
 		}
@@ -132,6 +153,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 		crafttools.register_reuse_exception('crafttools:hammer', 'crafttools:toolbox')
 		crafttools.register_reuse_exception('crafttools:cutters', 'crafttools:toolbox')
 		crafttools.register_reuse_exception('crafttools:wrench', 'crafttools:toolbox')
+		crafttools.register_reuse_exception('crafttools:saw', 'crafttools:toolbox')
 		
 		core.register_craft {
 			recipe = {
@@ -149,6 +171,15 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 				{'', 'default:stick', ''}
 			},
 			output = 'crafttools:cutters'
+		}
+		
+		core.register_craft {
+			recipe = {
+				{'default:steel_ingot', 'default:steel_ingot', ''},
+				{'', 'default:bronze_ingot', ''},
+				{'crafttools:toolbox', '', 'default:stick'}
+			},
+			output = 'crafttools:saw'
 		}
 	end
 end

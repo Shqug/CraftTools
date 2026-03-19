@@ -15,10 +15,11 @@ The following hand tools are available:
  - 'Hand Drill': For making holes in various materials including stone, wood, metal, etc.
  - 'Metal Cutters': For cutting sheet metal, wires, ropes & cables, and fabric.
  - 'Wrench': For configuring, repairing, and dismantling mechanical devices.
- - 'Knife': For any sort of cutting, carving, gouging, and stabbing.
+ - 'Knife': For any sort of slicing, carving, gouging, and stabbing.
+ - 'Hand Saw': For cutting wood and metal.
 
 As well as the following reusable consumables:
-
+drill.
  - 'Glue': Specially formulated K-Brand kelp superglue for binding and adhering all sorts of things.
  - 'Tape': Used to add tension and structural strength while also binding things together and sealing gaps.
 
