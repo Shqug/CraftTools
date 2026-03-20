@@ -1,6 +1,6 @@
 # CraftTools
 
-Provides simple tools and reusable ingredients that automatically return and lose a bit of durability when crafted with, rather than disappearing like a normal ingredient. Also includes an API for registering new tools and consumables.
+A library for mod & game developers providing simple tools and reusable ingredients that automatically return and lose a bit of durability when crafted with, rather than disappearing like a normal ingredient. Also includes an API for registering new tools and consumables.
 
 Optionally depends on `default` for recipes.
 
