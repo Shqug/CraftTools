@@ -15,4 +15,4 @@ Most of these concepts will probably make it into the mod at some point, althoug
  - Ability to play a sound(s) on craft
  - General `after_craft` callback for craft tools
  - Method to wear out tool by N uses and destroy + play sound if needed
- - Helper methods to reduce, increase, check uses of consumables
+ - New category of item that doesn't use wear or consumable uses, is just always returned
