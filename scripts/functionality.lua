@@ -125,7 +125,7 @@ core.register_on_craft(function (item, player, old_craft_grid, craft_inv)
 	
 	if tooltype == 2 then
 		local meta = item: get_meta()
-		meta: set_int('count_alignment', 7)
+		meta: set_int('count_alignment', 5)
 		meta: set_string('count_meta', core.colorize('#00ea08', uses .. '/' .. uses))
 	end
 	
