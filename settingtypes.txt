@@ -38,6 +38,15 @@ crafttools.glue_max_uses (Glue: Maximum Uses) int 20
 # The maximum number of times that Tape can be crafted with before breaking
 crafttools.tape_max_uses (Tape: Maximum Uses) int 30
 
+# The maximum number of times that Flint Sandpaper can be crafted with before breaking
+crafttools.sandpaper_1_max_uses (Flint Sandpaper: Maximum Uses) int 25
+
+# The maximum number of times that Mese Sandpaper can be crafted with before breaking
+crafttools.sandpaper_2_max_uses (Mese Sandpaper: Maximum Uses) int 90
+
+# The maximum number of times that Diamond Sandpaper can be crafted with before breaking
+crafttools.sandpaper_3_max_uses (Diamond Sandpaper: Maximum Uses) int 240
+
 [Toolbox]
 # Set to false to disable the toolbox, which can be used in place of any hand tool
 crafttools.enable_toolbox (Enable Toolbox) bool true
