@@ -17,7 +17,7 @@ Reusable consumables are defined in much the same way as crafttools, using the `
 
 To use standard tools/consumables in crafting recipes, you only need to input them as an ingredient in the same way you would any other item and they will perform their special behaviour automatically on craft. For example, to create a recipe to turn cobblestone into gravel using the Small Hammer, you would write the following recipe definition:
 
-```lua:
+```lua
 core.register_craft {
 	type = 'shapeless',
 	recipe = {'crafttools:hammer', 'default:cobble'},
@@ -27,7 +27,7 @@ core.register_craft {
 
 However, it's more convenient for you and the player if you use groups to specify the tools that can be used:
 
-```lua:
+```lua
 core.register_craft {
 	type = 'shapeless',
 	recipe = {'group:craft_tool_hammer', 'default:cobble'},
