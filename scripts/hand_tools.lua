@@ -166,21 +166,13 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 		core.register_craft {
 			type = 'shapeless',
 			recipe = {
-				'crafttools:file', 'crafttools:drill', 'crafttools:hammer',
-				'crafttools:cutters', 'default:chest_locked', 'crafttools:wrench',
-				'crafttools:saw', 'crafttools:chisel'
+				CraftTool 'crafttools:file': consume(), CraftTool 'crafttools:drill': consume(), CraftTool 'crafttools:hammer': consume(),
+				CraftTool 'crafttools:cutters': consume(), 'default:chest_locked', CraftTool 'crafttools:wrench': consume(),
+				CraftTool 'crafttools:saw': consume(), CraftTool 'crafttools:chisel': consume()
 				
 			},
 			output = 'crafttools:toolbox'
 		}
-		
-		crafttools.register_reuse_exception('crafttools:file', 'crafttools:toolbox')
-		crafttools.register_reuse_exception('crafttools:drill', 'crafttools:toolbox')
-		crafttools.register_reuse_exception('crafttools:hammer', 'crafttools:toolbox')
-		crafttools.register_reuse_exception('crafttools:cutters', 'crafttools:toolbox')
-		crafttools.register_reuse_exception('crafttools:wrench', 'crafttools:toolbox')
-		crafttools.register_reuse_exception('crafttools:saw', 'crafttools:toolbox')
-		crafttools.register_reuse_exception('crafttools:chisel', 'crafttools:toolbox')
 		
 		core.register_craft {
 			recipe = {
