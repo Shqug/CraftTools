@@ -16,3 +16,4 @@ All of these features will be included in the mod in some form at some point, bu
  - [x] Ability to have non-crafttool tools be treated as a craft tool for single recipes
  - [ ] Definition field for consumables allowing their `inventory_image` texture to change via meta based on their remaining uses
  - [ ] Helper methods to reduce, increase, check uses of consumables
+ - [x] Ability to play a sound(s) on craft

@@ -10,5 +10,3 @@ Most of these concepts will probably make it into the mod at some point, althoug
  - Ability to separate intact toolbox back into constituent tools
 
 ## Functionality
-
- - Ability to play a sound(s) on craft

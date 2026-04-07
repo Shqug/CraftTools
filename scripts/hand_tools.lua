@@ -1,7 +1,7 @@
 
 local enable_recipes = core.settings: get_bool('crafttools.enable_default_recipes', true)
 
-crafttools.register_tool('crafttools:file', core.settings: get 'crafttools.file_max_uses' or 150, {
+crafttools.register_tool('crafttools:file', core.settings: get 'crafttools.file_max_uses' or 10, {
 	description = crafttools.gettext 'Metal File',
 	inventory_image = 'crafttools_file.png',
 	groups = {craft_tool_file = 1}
@@ -202,3 +202,9 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 		}
 	end
 end
+
+core.register_craft {
+	type = 'shapeless',
+	recipe = {CraftTool 'default:pick_steel': uses(100), 'default:cobble'},
+	output = 'default:gravel'
+}

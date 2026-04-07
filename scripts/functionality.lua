@@ -1,4 +1,7 @@
 
+local enable_craft_sounds = core.settings: get_bool('crafttools.enable_craft_sounds', true)
+local enable_break_sounds = core.settings: get_bool('crafttools.enable_break_sounds', true)
+
 local craft_tool_description = core.colorize('#ff8c00', crafttools.gettext 'Crafting tool: reusable in recipes')
 local consumable_description = core.colorize('#ff8c00', crafttools.gettext 'Multi-use crafting ingredient')
 
@@ -72,6 +75,16 @@ local CraftTool_meta = {__index = {
 	uses = function (self, count)
 		self.overrides.uses = count or 1
 		return self
+	end,
+	break_sound = function (self, sound)
+		self.overrides.sound = self.overrides.sound or {}
+		self.overrides.sound.breaks = sound
+		return self
+	end,
+	craft_sound = function (self, sound)
+		self.overrides.sound = self.overrides.sound or {}
+		self.overrides.sound.crafts = sound
+		return self
 	end
 }, __CraftTool = true}
 
@@ -109,6 +122,7 @@ end
 
 core.register_on_craft(function (crafted, player, old_craft_grid, craft_inv)
 	for index, item in ipairs(old_craft_grid) do
+		local def = item: get_definition()
 		local itemname    = item: get_name()
 		local tooltype    = core.get_item_group(itemname, 'crafttools_tool_type')
 		local uses        = core.get_item_group(itemname, 'crafttools_tool_uses')
@@ -117,7 +131,6 @@ core.register_on_craft(function (crafted, player, old_craft_grid, craft_inv)
 		local overrides = get_overrides(itemname, crafted)
 		
 		-- Non-crafttool tools are treated as crafttools if they have a defined override for this recipe
-		local def = item: get_definition()
 		if overrides and (tooltype == 0 or not tooltype) and def.type == 'tool' then
 			tooltype = 1
 			uses = def.tool_capabilities and def.tool_capabilities.groupcaps and overrides.uses or (
@@ -137,12 +150,18 @@ core.register_on_craft(function (crafted, player, old_craft_grid, craft_inv)
 				local wear = item: get_wear()
 				wear = wear + (math.ceil(65535 / uses) * (overrides.take_uses or 1))
 				
+				if enable_craft_sounds and (overrides.sound or def.sound) then
+					core.sound_play((overrides.sound and overrides.sound.crafts) or (def.sound and def.sound.crafts), {to_player = player: get_player_name()}, true)
+				end
+				
 				if wear >= 65535 then
 					if unbreakable then
 						item: set_wear(65534)
 						craft_inv: set_stack('craft', index, item)
 					else
-						if default then core.sound_play({name = 'default_tool_breaks'}, {to_player = player: get_player_name()}, true) end
+						if enable_break_sounds and (overrides.sound or def.sound or default) then
+							core.sound_play((overrides.sound and overrides.sound.breaks) or (def.sound and def.sound.breaks) or {name = 'default_tool_breaks'}, {to_player = player: get_player_name()}, true)
+						end
 						if overrides.replace then
 							craft_inv: set_stack('craft', index, overrides.replace)
 						end
@@ -155,12 +174,21 @@ core.register_on_craft(function (crafted, player, old_craft_grid, craft_inv)
 				local meta = item: get_meta()
 				local used = (meta: get_int 'crafttools_consumable_used') + (overrides.take_uses or 1)
 				
+				if enable_craft_sounds and (overrides.sound or def.sound) then
+					core.sound_play((overrides.sound and overrides.sound.crafts) or (def.sound and def.sound.crafts), {to_player = player: get_player_name()}, true)
+				end
+				
 				if used < uses then
 					meta: set_string('count_meta', core.colorize(get_consumable_uses_color(uses, used), (uses - used) .. '/' .. uses))
 					meta: set_int('crafttools_consumable_used', used)
 					craft_inv: set_stack('craft', index, item)
-				elseif overrides.replace then
-					craft_inv: set_stack('craft', index, overrides.replace)
+				else
+					if enable_break_sounds and (overrides.sound or def.sound) then
+						core.sound_play((overrides.sound and overrides.sound.breaks) or (def.sound and def.sound.breaks), {to_player = player: get_player_name()}, true)
+					end
+					if overrides.replace then
+						craft_inv: set_stack('craft', index, overrides.replace)
+					end
 				end
 			end
 		else

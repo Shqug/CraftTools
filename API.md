@@ -7,9 +7,11 @@ New CraftTools can be created using the `crafttools.register_tool` function. It 
 
 If a crafttool's definition contains the `wear_represents` field, it will be treated as 'unbreakable', resulting in it not being destroyed once at 0 uses remaining and instead becoming useless until repaired, recharged, refuelled, or so on. The mechanics for refilling the uses of the tool are up to you, if you choose to use this feature.
 
+If the definition contains a `sound` field, `sound.breaks` will be checked first before using the basic tool breaking sound from `default`. You can use this to specify a custom breaking sound for when the crafttool is fully used up. Additionally, a `sound.crafts` SoundSpec can be used to play a sound every time the tool is used in a crafting recipe. These sounds will only be played to the player doing the crafting.
+
 ## Defining Reusable Consumables
 
-Reusable consumables are defined in much the same way as crafttools, using the `crafttools.register_consumable` function. It has the same parameters as `crafttools.register_tool`. Consumables are not registered as tool items, so they have no actual wear or other tool-specific definition fields. The `unbreakable` property thus also does not apply to consumables.
+Reusable consumables are defined in much the same way as crafttools, using the `crafttools.register_consumable` function. It has the same parameters as `crafttools.register_tool`. Consumables are not registered as tool items, so they have no actual wear or other tool-specific definition fields. The `unbreakable` property thus also does not apply to consumables. Consumables do not have a breaking sound by default, but one can be defined, as can a crafting sound.
 
 ## Using Tools and Consumables in Recipes
 
@@ -54,11 +56,13 @@ This recipe has no special behaviour compared to the normal features of a craftt
 
 The following methods are available for `CraftTool` objects:
 
- - `CraftTool 'mymod:item': consume()`: Flags the item as to be completely consumed, and disallows the recipe from being crafted if the item's uses are not completely full (exception, see `any_uses`). This is used in the recipes for tape and the toolbox.
+ - `CraftTool 'mymod:item': consume()`: Flags the item as to be completely consumed, and disallows the recipe from being crafted if the item's uses are not completely full (exception, see `any_uses`). Consumed items do not play a breaking sound. This is used in the recipes for tape and the toolbox.
  - `CraftTool 'mymod:item': take_uses(uses)`: Defines how many uses should be taken from the tool or consumable. If the item has less remaining than this amount, the recipe will not be craftable (exception, see `any_uses`). This is used in the recipes for sandpaper.
  - `CraftTool 'mymod:item': unbreakable(bool)`: Sets the tool as either unbreakable or breakable depending on the boolean value supplied. If no value is supplied, default to `true`. Normally-unbreakable tools can be made temporarily breakable by passing `false`.
  - `CraftTool 'mymod:item': any_uses()`: Flags the item to allow the recipe to succeed regardless of the number of remaining uses. Over-overrides the craft cancellation of other overrides.
  - `CraftTool 'mymod:item': replace(itemstack)`: Causes the item to be replaced by a different item once consumed or fully used up. Compatible with `:consume()`, and not compatible with `:unbreakable()`.
+ - `CraftTool 'mymod:item': break_sound(soundspec)`: Overrides the sound played when the tool or consumable breaks/is used up.
+ - `CraftTool 'mymod:item': craft_sound(soundspec)`: Overrides the sound played when the tool or consumable is crafted with.
 
 An example of their use might look like this:
 

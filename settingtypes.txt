@@ -3,6 +3,12 @@
 # Set to false to disable the built-in recipes for all tools using items from the 'default' mod of MTG
 crafttools.enable_default_recipes (Enable Default Recipes) bool true
 
+# Set to false to disable playing sounds when a tool breaks
+crafttools.enable_break_sounds (Enable Tool Breaking Sounds) bool true
+
+# Set to false to disable playing sounds when using tools in a recipe
+crafttools.enable_craft_sounds (Enable Tool Crafting Sounds) bool true
+
 [Hand Tools]
 # The maximum number of times that the Small Hammer can be crafted with before breaking
 crafttools.hammer_max_uses (Small Hammer: Maximum Uses) int 250
