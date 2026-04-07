@@ -4,9 +4,9 @@ Most of these concepts will probably make it into the mod at some point, althoug
 
 ## Content
 
- - 'Whetstone' or 'Repair Kit' consumable that restores durability to craft tools
  - Boxes of nails / nuts and bolts as consumables
  - 'Ink & Quill' consumable for making books, notes, labels (Tool instead, non-breaking, refill recipe?)
- - Ability to separate intact toolbox back into constituent tools
 
 ## Functionality
+
+ - Override tool type, uses via metadata

@@ -1,5 +1,6 @@
 
 [General]
+
 # Set to false to disable all built-in items and their recipes
 crafttools.enable_items (Enable Built-In Items) bool true
 
@@ -110,8 +111,10 @@ crafttools.needle_enabled (Needle and Thread: Is Enabled) bool true
 crafttools.needle_max_uses (Needle and Thread: Maximum Uses) int 40
 
 [Toolbox]
+
 # Set to false to disable the toolbox, which can be used in place of any hand tool
 crafttools.enable_toolbox (Enable Toolbox) bool true
 
 # The maximum number of times that the Toolbox can be crafted with before breaking
 crafttools.toolbox_max_uses (Toolbox: Maximum Uses) int 1850
+

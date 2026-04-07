@@ -8,6 +8,8 @@ All of these features will be included in the mod in some form at some point, bu
  - [x] 'Needle and Thread' consumable for sewing things like bags and clothing. 30, 50 uses?
  - [x] 'Chisel' tool for shaping stone and wood and crafting decorative variants of nodes
  - [x] Options to disable all tools & consumables individually, by category, or all together
+ - [ ] Ability to separate intact toolbox back into constituent tools
+ - [ ] 'Repair Kit' consumable that restores durability to tools when crafted together (disabled by default, enable_repair_kit function for other mods)
 
 ## Functionality
 
