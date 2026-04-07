@@ -1,7 +1,16 @@
 
 [General]
+# Set to false to disable all built-in items and their recipes
+crafttools.enable_items (Enable Built-In Items) bool true
+
 # Set to false to disable the built-in recipes for all tools using items from the 'default' mod of MTG
 crafttools.enable_default_recipes (Enable Default Recipes) bool true
+
+# Set to false to disable all the hand tools and their recipes
+crafttools.enable_hand_tools (Enable Built-In Hand Tools) bool true
+
+# Set to false to disable all the consumables and their recipes
+crafttools.enable_consumables (Enable Built-In Reusable Consumables) bool true
 
 # Set to false to disable playing sounds when a tool breaks
 crafttools.enable_break_sounds (Enable Tool Breaking Sounds) bool true
@@ -10,20 +19,39 @@ crafttools.enable_break_sounds (Enable Tool Breaking Sounds) bool true
 crafttools.enable_craft_sounds (Enable Tool Crafting Sounds) bool true
 
 [Hand Tools]
+
+# Set to false to disable the small hammer
+crafttools.hammer_enabled (Small Hammer: Is Enabled) bool true
+
 # The maximum number of times that the Small Hammer can be crafted with before breaking
 crafttools.hammer_max_uses (Small Hammer: Maximum Uses) int 250
+
+# Set to false to disable the metal file
+crafttools.file_enabled (Metal File: Is Enabled) bool true
 
 # The maximum number of times that the Metal File can be crafted with before breaking
 crafttools.file_max_uses (Metal File: Maximum Uses) int 150
 
+# Set to false to disable the hand drill
+crafttools.drill_enabled (Hand Drill: Is Enabled) bool true
+
 # The maximum number of times that the Hand Drill can be crafted with before breaking
 crafttools.drill_max_uses (Hand Drill: Maximum Uses) int 200
+
+# Set to false to disable the metal cutters
+crafttools.cutters_enabled (Metal Cutters: Is Enabled) bool true
 
 # The maximum number of times that the Metal Cutters can be crafted with before breaking
 crafttools.cutters_max_uses (Metal Cutters: Maximum Uses) int 250
 
+# Set to false to disable the wrench
+crafttools.wrench_enabled (Wrench: Is Enabled) bool true
+
 # The maximum number of times that the Wrench can be crafted with before breaking
 crafttools.wrench_max_uses (Wrench: Maximum Uses) int 200
+
+# Set to false to disable the knife
+crafttools.knife_enabled (Knife: Is Enabled) bool true
 
 # The maximum number of times that the Knife can be crafted with before breaking
 crafttools.knife_max_uses (Knife: Maximum Uses) int 200
@@ -31,24 +59,46 @@ crafttools.knife_max_uses (Knife: Maximum Uses) int 200
 # How much damage the Knife deals per full swing
 crafttools.knife_attack_damage (Knife: Attack Damage) int 3
 
+# Set to false to disable the hand saw
+crafttools.saw_enabled (Hand Saw: Is Enabled) bool true
+
 # The maximum number of times that the Hand Saw can be crafted with before breaking
 crafttools.saw_max_uses (Hand Saw: Maximum Uses) int 250
+
+# Set to false to disable the chisel
+crafttools.chisel_enabled (Chisel: Is Enabled) bool true
 
 # The maximum number of times that the Chisel can be crafted with before breaking
 crafttools.chisel_max_uses (Chisel: Maximum Uses) int 300
 
 [Consumables]
+
+# Set to false to disable the glue
+crafttools.glue_enabled (Glue: Is Enabled) bool true
+
 # The maximum number of times that Glue can be crafted with before breaking
 crafttools.glue_max_uses (Glue: Maximum Uses) int 20
+
+# Set to false to disable the tape
+crafttools.tape_enabled (Tape: Is Enabled) bool true
 
 # The maximum number of times that Tape can be crafted with before breaking
 crafttools.tape_max_uses (Tape: Maximum Uses) int 30
 
+# Set to false to disable the flint sandpaper
+crafttools.sandpaper_1_enabled (Flint Sandpaper: Is Enabled) bool true
+
 # The maximum number of times that Flint Sandpaper can be crafted with before breaking
 crafttools.sandpaper_1_max_uses (Flint Sandpaper: Maximum Uses) int 25
 
+# Set to false to disable the mese sandpaper
+crafttools.sandpaper_2_enabled (Mese Sandpaper: Is Enabled) bool true
+
 # The maximum number of times that Mese Sandpaper can be crafted with before breaking
 crafttools.sandpaper_2_max_uses (Mese Sandpaper: Maximum Uses) int 90
+
+# Set to false to disable the diamond sandpaper
+crafttools.sandpaper_3_enabled (Diamond Sandpaper: Is Enabled) bool true
 
 # The maximum number of times that Diamond Sandpaper can be crafted with before breaking
 crafttools.sandpaper_3_max_uses (Diamond Sandpaper: Maximum Uses) int 240

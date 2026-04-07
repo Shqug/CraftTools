@@ -4,7 +4,7 @@ A library for mod & game developers providing simple tools and reusable ingredie
 
 Optionally depends on `default` for recipes.
 
-The toolbox and all recipes can be disabled, and the durability of all tools can be changed in the settings.
+All tools and consumables and their recipes can be disabled by category or individually, and the durability of all tools can be changed in the settings.
 
 ## Provided Items
 

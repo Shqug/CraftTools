@@ -6,5 +6,13 @@ crafttools = {
 }
 
 dofile(crafttools.modpath .. '/scripts/functionality.lua')
-dofile(crafttools.modpath .. '/scripts/hand_tools.lua')
-dofile(crafttools.modpath .. '/scripts/consumables.lua')
+
+if core.settings: get_bool ('crafttools.enable_items', true) then
+	if core.settings: get_bool ('crafttools.enable_hand_tools', true) then
+		dofile(crafttools.modpath .. '/scripts/hand_tools.lua')
+	end
+	
+	if core.settings: get_bool ('crafttools.enable_consumables', true) then
+		dofile(crafttools.modpath .. '/scripts/consumables.lua')
+	end
+end
