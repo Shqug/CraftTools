@@ -5,7 +5,7 @@ All of these features will be included in the mod in some form at some point, bu
 ## Content
 
  - [x] A generic 'Saw' tool; needs to be able to cut both wood and metal, so probably should look like a hacksaw or tenon saw
- - [ ] 'Needle and Thread' consumable for sewing things like bags and clothing. 30, 50 uses?
+ - [x] 'Needle and Thread' consumable for sewing things like bags and clothing. 30, 50 uses?
  - [x] 'Chisel' tool for shaping stone and wood and crafting decorative variants of nodes
  - [x] Options to disable all tools & consumables individually, by category, or all together
 

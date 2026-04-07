@@ -103,6 +103,12 @@ crafttools.sandpaper_3_enabled (Diamond Sandpaper: Is Enabled) bool true
 # The maximum number of times that Diamond Sandpaper can be crafted with before breaking
 crafttools.sandpaper_3_max_uses (Diamond Sandpaper: Maximum Uses) int 240
 
+# Set to false to disable the needle and thread
+crafttools.needle_enabled (Needle and Thread: Is Enabled) bool true
+
+# The maximum number of times that Needle and Thread can be crafted with before breaking
+crafttools.needle_max_uses (Needle and Thread: Maximum Uses) int 40
+
 [Toolbox]
 # Set to false to disable the toolbox, which can be used in place of any hand tool
 crafttools.enable_toolbox (Enable Toolbox) bool true

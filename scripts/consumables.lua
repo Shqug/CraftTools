@@ -93,3 +93,30 @@ if core.settings: get_bool('crafttools.sandpaper_3_enabled', true) then
 		}
 	end
 end
+
+if core.settings: get_bool('crafttools.needle_enabled', true) then
+	crafttools.register_consumable('crafttools:needle', core.settings: get 'crafttools.needle_max_uses' or 40, {
+		description = crafttools.gettext 'Needle and Thread',
+		inventory_image = 'crafttools_needle.png'
+	})
+
+	if enable_recipes then
+		core.register_craft {
+			recipe = {
+				{'group:craft_tool_hammer', 'farming:string', 'group:craft_tool_cutters'},
+				{'farming:string', 'default:stick', 'farming:string'},
+				{'default:steel_ingot', 'farming:string', 'group:craft_tool_file'}
+			},
+			output = 'crafttools:needle'
+		}
+		
+		core.register_craft {
+			recipe = {
+				{'', 'farming:string', CraftTool 'crafttools:toolbox': take_uses(3)},
+				{'farming:string', 'default:stick', 'farming:string'},
+				{'default:steel_ingot', 'farming:string', ''}
+			},
+			output = 'crafttools:needle'
+		}
+	end
+end

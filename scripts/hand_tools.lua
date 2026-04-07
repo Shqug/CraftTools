@@ -192,7 +192,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 		
 		core.register_craft {
 			recipe = {
-				{'crafttools:toolbox', '', 'default:steel_ingot'},
+				{CraftTool 'crafttools:toolbox': take_uses(2), '', 'default:steel_ingot'},
 				{'default:bronze_ingot', 'default:steel_ingot', ''},
 				{'default:stick', '', ''}
 			},
@@ -201,7 +201,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 		
 		core.register_craft {
 			recipe = {
-				{'crafttools:toolbox', 'default:steel_ingot', ''},
+				{CraftTool 'crafttools:toolbox': take_uses(2), 'default:steel_ingot', ''},
 				{'default:stick', 'default:bronze_ingot', 'default:steel_ingot'},
 				{'', 'default:stick', ''}
 			},
@@ -212,7 +212,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			recipe = {
 				{'default:steel_ingot', 'default:steel_ingot', ''},
 				{'', 'default:bronze_ingot', ''},
-				{'crafttools:toolbox', '', 'default:stick'}
+				{CraftTool 'crafttools:toolbox': take_uses(2), '', 'default:stick'}
 			},
 			output = 'crafttools:saw'
 		}
