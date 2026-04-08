@@ -94,7 +94,7 @@ local CraftTool_meta = {__index = {
 
 -- Wrap an itemstack or itemstring as a crafttool ingredient, which holds information on overrides
 function CraftTool (item)
-	return setmetatable({item = item, overrides = {}}, CraftTool_meta)
+	return setmetatable({item = item, overrides = {enabled = true}}, CraftTool_meta)
 end
 
 local function merge (a, b)
@@ -135,7 +135,7 @@ core.register_on_craft(function (crafted, player, old_craft_grid, craft_inv)
 		local overrides = get_overrides(itemname, crafted)
 		
 		-- Non-crafttool tools are treated as crafttools if they have a defined override for this recipe
-		if overrides and (tooltype == 0 or not tooltype) and def.type == 'tool' then
+		if overrides.enabled and (tooltype == 0 or not tooltype) and def.type == 'tool' then
 			tooltype = 1
 			uses = def.tool_capabilities and def.tool_capabilities.groupcaps and overrides.uses or (
 				def.tool_capabilities.groupcaps.cracky or
@@ -192,6 +192,8 @@ core.register_on_craft(function (crafted, player, old_craft_grid, craft_inv)
 					end
 					if overrides.replace then
 						craft_inv: set_stack('craft', index, overrides.replace)
+					else
+						craft_inv: set_stack('craft', index, ItemStack())
 					end
 				end
 			end
