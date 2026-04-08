@@ -225,13 +225,13 @@ core.register_craft {
 }
 
 if core.settings: get_bool('crafttools.toolbox_allow_splitting', true) then
-	local output_stack = ItemStack 'default:chest'
-	output_stack: get_meta(): set_string('description', output_stack: get_definition().description .. '\n' .. core.colorize('#ff8c00', crafttools.gettext 'Tools will be returned to the inventory'))
+	local input_stack = ItemStack 'crafttools:toolbox'
+	input_stack: get_meta(): set_string('description', input_stack: get_definition().description .. '\n' .. core.colorize('#ff3c00', crafttools.gettext 'Tools will be returned to the inventory'))
 	
 	core.register_craft {
 		type = 'shapeless',
-		recipe = {CraftTool 'crafttools:toolbox': require_uses(-1): consume()},
-		output = output_stack: to_string(),
+		recipe = {CraftTool(input_stack: to_string()): require_uses(-1): consume()},
+		output = 'default:chest',
 		replacements = {
 			{'', 'crafttools:file'},
 			{'', 'crafttools:hammer'},

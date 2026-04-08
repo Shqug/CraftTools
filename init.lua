@@ -15,4 +15,8 @@ if core.settings: get_bool ('crafttools.enable_items', true) then
 	if core.settings: get_bool ('crafttools.enable_consumables', true) then
 		dofile(crafttools.modpath .. '/scripts/consumables.lua')
 	end
+	
+	if core.settings: get_bool ('crafttools.enable_repair_kit', false) then
+		dofile(crafttools.modpath .. '/scripts/repair_kit.lua')
+	end
 end
