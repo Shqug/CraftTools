@@ -164,7 +164,7 @@ if core.settings: get_bool('crafttools.chisel_enabled', true) then
 end
 
 if core.settings: get_bool('crafttools.enable_toolbox', true) then
-	crafttools.register_tool('crafttools:toolbox', core.settings: get 'crafttools.toolbox_max_uses' or 1850, {
+	crafttools.register_tool('crafttools:toolbox', core.settings: get 'crafttools.toolbox_max_uses' or 1550, {
 		description = crafttools.gettext 'Toolbox',
 		inventory_image = 'crafttools_toolbox.png',
 		groups = {
@@ -173,8 +173,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			craft_tool_hammer = 1,
 			craft_tool_cutters = 1,
 			craft_tool_wrench = 1,
-			craft_tool_saw = 1,
-			craft_tool_chisel = 1
+			craft_tool_saw = 1
 		}
 	})
 
@@ -183,8 +182,8 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			type = 'shapeless',
 			recipe = {
 				CraftTool 'crafttools:file': consume(), CraftTool 'crafttools:drill': consume(), CraftTool 'crafttools:hammer': consume(),
-				CraftTool 'crafttools:cutters': consume(), 'default:chest_locked', CraftTool 'crafttools:wrench': consume(),
-				CraftTool 'crafttools:saw': consume(), CraftTool 'crafttools:chisel': consume()
+				CraftTool 'crafttools:cutters': consume(), CraftTool 'crafttools:wrench': consume(), CraftTool 'crafttools:saw': consume(),
+				'default:chest_locked'
 				
 			},
 			output = 'crafttools:toolbox'

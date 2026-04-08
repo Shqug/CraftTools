@@ -24,7 +24,7 @@ As well as the following reusable consumables:
  - 'Tape': Used to add tension and structural strength while also binding things together and sealing gaps.
  - 'Sandpaper': Used for finer smoothing and on harder materials than the file. There are three kinds (in order of increasing grit): flint, mese, and diamond.
 
-There is also a 'Toolbox', which combines the functionality of all the hand tools other than the knife while having a little more durability than all of them put together.
+There is also a 'Toolbox', which combines the functionality of all the hand tools other than the knife and chisel while having a little more durability than all of them put together.
 
 ## API
 
