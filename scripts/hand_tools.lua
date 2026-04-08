@@ -2,7 +2,7 @@
 local enable_recipes = core.settings: get_bool('crafttools.enable_default_recipes', true)
 
 if core.settings: get_bool('crafttools.file_enabled', true) then
-	crafttools.register_tool('crafttools:file', core.settings: get 'crafttools.file_max_uses' or 10, {
+	crafttools.register_tool('crafttools:file', core.settings: get 'crafttools.file_max_uses' or 150, {
 		description = crafttools.gettext 'Metal File',
 		inventory_image = 'crafttools_file.png',
 		groups = {craft_tool_file = 1}
@@ -183,7 +183,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			recipe = {
 				CraftTool 'crafttools:file': consume(), CraftTool 'crafttools:drill': consume(), CraftTool 'crafttools:hammer': consume(),
 				CraftTool 'crafttools:cutters': consume(), CraftTool 'crafttools:wrench': consume(), CraftTool 'crafttools:saw': consume(),
-				'default:chest_locked'
+				'default:chest'
 				
 			},
 			output = 'crafttools:toolbox'
@@ -223,3 +223,22 @@ core.register_craft {
 	recipe = {CraftTool 'default:pick_steel': uses(100), 'default:cobble'},
 	output = 'default:gravel'
 }
+
+if core.settings: get_bool('crafttools.toolbox_allow_splitting', true) then
+	local output_stack = ItemStack 'default:chest'
+	output_stack: get_meta(): set_string('description', output_stack: get_definition().description .. '\n' .. core.colorize('#ff8c00', crafttools.gettext 'Tools will be returned to the inventory'))
+	
+	core.register_craft {
+		type = 'shapeless',
+		recipe = {CraftTool 'crafttools:toolbox': require_uses(-1): consume()},
+		output = output_stack: to_string(),
+		replacements = {
+			{'', 'crafttools:file'},
+			{'', 'crafttools:hammer'},
+			{'', 'crafttools:cutters'},
+			{'', 'crafttools:drill'},
+			{'', 'crafttools:wrench'},
+			{'', 'crafttools:saw'}
+		}
+	}
+end

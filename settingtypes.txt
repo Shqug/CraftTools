@@ -118,3 +118,5 @@ crafttools.enable_toolbox (Enable Toolbox) bool true
 # The maximum number of times that the Toolbox can be crafted with before breaking
 crafttools.toolbox_max_uses (Toolbox: Maximum Uses) int 1850
 
+# Set to false to disable uncrafting the toolbox back into its' constituent tools and locked chest
+crafttools.toolbox_allow_splitting (Allow Separating Toolbox) bool true
