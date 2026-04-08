@@ -56,10 +56,11 @@ This recipe has no special behaviour compared to the normal features of a craftt
 
 The following methods are available for `CraftTool` objects:
 
- - `CraftTool 'mymod:item': consume()`: Flags the item as to be completely consumed, and disallows the recipe from being crafted if the item's uses are not completely full (exception, see `any_uses`). Consumed items do not play a breaking sound. This is used in the recipes for tape and the toolbox.
- - `CraftTool 'mymod:item': take_uses(uses)`: Defines how many uses should be taken from the tool or consumable. If the item has less remaining than this amount, the recipe will not be craftable (exception, see `any_uses`). This is used in the recipes for sandpaper.
+ - `CraftTool 'mymod:item': consume()`: Flags the item as to be completely consumed, and disallows the recipe from being crafted if the item's uses are not completely full (exception, see `any_uses`). Consumed items do not play a breaking sound. 
+ - `CraftTool 'mymod:item': take_uses(uses)`: Defines how many uses should be taken from the tool or consumable. If the item has less remaining than this amount, the recipe will not be craftable (exception, see `any_uses`).
  - `CraftTool 'mymod:item': unbreakable(bool)`: Sets the tool as either unbreakable or breakable depending on the boolean value supplied. If no value is supplied, default to `true`. Normally-unbreakable tools can be made temporarily breakable by passing `false`.
  - `CraftTool 'mymod:item': any_uses()`: Flags the item to allow the recipe to succeed regardless of the number of remaining uses. Over-overrides the craft cancellation of other overrides.
+ - `CraftTool 'mymod:item': require_uses(uses)`: The recipe will not be craftable if the item has less than this number of uses remaining, unless `any_uses` was specified. Does not overwrite the minimums set by other overrides, e.g. `take_uses`.
  - `CraftTool 'mymod:item': replace(itemstack)`: Causes the item to be replaced by a different item once consumed or fully used up. Compatible with `:consume()`, and not compatible with `:unbreakable()`.
  - `CraftTool 'mymod:item': break_sound(soundspec)`: Overrides the sound played when the tool or consumable breaks/is used up.
  - `CraftTool 'mymod:item': craft_sound(soundspec)`: Overrides the sound played when the tool or consumable is crafted with.

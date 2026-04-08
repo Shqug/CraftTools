@@ -59,6 +59,14 @@ local CraftTool_meta = {__index = {
 		self.overrides.any_uses = true
 		return self
 	end,
+	require_uses = function (self, count)
+		self.overrides.min_uses = count
+		return self
+	end,
+	only_full = function (self, count)
+		self.overrides.min_uses = ItemStack(self.item): get_definition().groups.crafttools_tool_uses
+		return self
+	end,
 	take_uses = function (self, count)
 		self.overrides.take_uses = count or 1
 		return self
@@ -211,6 +219,22 @@ core.register_craft_predict(function (crafted, player, old_craft_grid, craft_inv
 		
 		if overrides.unbreakable ~= nil then
 			unbreakable = overrides.unbreakable
+		end
+		
+		if overrides.min_uses and not overrides.any_uses then
+			if tooltype == 1 then
+				local wear = item: get_wear()
+				if (65536 - wear) < math.floor(65535 / uses) * overrides.min_uses then
+					return ''
+				end
+			elseif tooltype == 2 then
+				local meta = item: get_meta()
+				local used = meta: get_int 'crafttools_consumable_used'
+				
+				if uses - used < overrides.min_uses then
+					return ''
+				end
+			end
 		end
 		
 		if tooltype == 1 then
