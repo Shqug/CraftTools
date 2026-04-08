@@ -70,7 +70,7 @@ crafttools.saw_max_uses (Hand Saw: Maximum Uses) int 250
 crafttools.chisel_enabled (Chisel: Is Enabled) bool true
 
 # The maximum number of times that the Chisel can be crafted with before breaking
-crafttools.chisel_max_uses (Chisel: Maximum Uses) int 300
+crafttools.chisel_max_uses (Chisel: Maximum Uses) int 500
 
 [Consumables]
 

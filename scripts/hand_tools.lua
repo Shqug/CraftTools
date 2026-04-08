@@ -145,7 +145,7 @@ if core.settings: get_bool('crafttools.saw_enabled', true) then
 end
 
 if core.settings: get_bool('crafttools.chisel_enabled', true) then
-	crafttools.register_tool('crafttools:chisel', core.settings: get 'crafttools.chisel_max_uses' or 300, {
+	crafttools.register_tool('crafttools:chisel', core.settings: get 'crafttools.chisel_max_uses' or 500, {
 		description = crafttools.gettext 'Chisel',
 		inventory_image = 'crafttools_chisel.png',
 		groups = {craft_tool_chisel = 1}
