@@ -10,6 +10,7 @@ All of these features will be included in the mod in some form at some point, bu
  - [x] Options to disable all tools & consumables individually, by category, or all together
  - [x] Ability to separate intact toolbox back into constituent tools
  - [x] 'Repair Kit' consumable that restores durability to tools when crafted together (disabled by default)
+ - [ ] Make toolbox content & uses dynamic
 
 ## Functionality
 
@@ -19,3 +20,4 @@ All of these features will be included in the mod in some form at some point, bu
  - [ ] Definition field for consumables allowing their `inventory_image` texture to change via meta based on their remaining uses
  - [ ] Helper methods to reduce, increase, check uses of consumables
  - [x] Ability to play a sound(s) on craft
+ - [ ] Ability to override tool/consumable uses via metadata
