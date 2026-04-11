@@ -218,12 +218,6 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 	end
 end
 
-core.register_craft {
-	type = 'shapeless',
-	recipe = {CraftTool 'default:pick_steel': uses(100), 'default:cobble'},
-	output = 'default:gravel'
-}
-
 if core.settings: get_bool('crafttools.toolbox_allow_splitting', true) then
 	local input_stack = ItemStack 'crafttools:toolbox'
 	input_stack: get_meta(): set_string('description', input_stack: get_definition().description .. '\n' .. core.colorize('#ff3c00', crafttools.gettext 'Tools will be returned to the inventory'))
