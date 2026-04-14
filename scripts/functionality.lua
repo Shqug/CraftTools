@@ -107,7 +107,7 @@ local function merge (a, b)
 	return c
 end
 
-local function get_overrides (input, output)
+function crafttools.get_overrides (input, output)
 	local output = output: get_name()
 	
 	local overrides = crafttools.craft_behaviour_overrides[input] and crafttools.craft_behaviour_overrides[input][output] or {}
@@ -132,7 +132,12 @@ core.register_on_craft(function (crafted, player, old_craft_grid, craft_inv)
 		local uses        = core.get_item_group(itemname, 'crafttools_tool_uses')
 		local unbreakable = core.get_item_group(itemname, 'crafttools_tool_unbreakable') == 1
 		
-		local overrides = get_overrides(itemname, crafted)
+		local meta_uses = item: get_meta(): get_int 'crafttools:uses_override'
+		if meta_uses and meta_uses > 0 then
+			uses = meta_uses
+		end
+		
+		local overrides = crafttools.get_overrides(itemname, crafted)
 		
 		-- Non-crafttool tools are treated as crafttools if they have a defined override for this recipe
 		if overrides.enabled and (tooltype == 0 or not tooltype) and def.type == 'tool' then
@@ -213,7 +218,7 @@ core.register_craft_predict(function (crafted, player, old_craft_grid, craft_inv
 		local uses        = core.get_item_group(itemname, 'crafttools_tool_uses')
 		local unbreakable = core.get_item_group(itemname, 'crafttools_tool_unbreakable') == 1
 		
-		local overrides = get_overrides(itemname, crafted)
+		local overrides = crafttools.get_overrides(itemname, crafted)
 		
 		if overrides.unbreakable ~= nil then
 			unbreakable = overrides.unbreakable

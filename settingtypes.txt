@@ -115,9 +115,6 @@ crafttools.needle_max_uses (Needle and Thread: Maximum Uses) int 40
 # Set to false to disable the toolbox, which can be used in place of any hand tool
 crafttools.enable_toolbox (Toolbox: Is Enabled) bool true
 
-# The maximum number of times that the Toolbox can be crafted with before breaking
-crafttools.toolbox_max_uses (Toolbox: Maximum Uses) int 1850
-
 # Set to false to disable uncrafting the toolbox back into its' constituent tools and chest
 crafttools.toolbox_allow_splitting (Allow Separating Toolbox) bool true
 
