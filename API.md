@@ -105,6 +105,16 @@ Note that `:uses()` is ignored for regular crafttools.
 
 You can also use `:replace()` on both tool and non-tool items, rather than the engine's `replacements` field in recipe definitions. This only really makes sense for non-stacking items, as the stack passed to `:replace()` will completely overwrite the input item, including its' count.
 
+## Helper Functions for Consumables
+
+It's easy to query and manipulate the uses of a craft tool, since they use standard engine-controlled tool wear. However, doing the same with reusable consumables requires knowing the group names and meta fields where that information is stored, which can be annoying and adds clutter to your code. For convenience in dealing with consumables, three helper functions are provided:
+
+`crafttools.get_consumable_uses(item)` returns the remaining and maximum uses of any consumable. If a valid consumable, the returned values will be `remaining_uses, used`. Otherwise, only `nil` will be returned. In the case of an inherently unbreakable consumable, `-1, -1` will be returned.
+
+`crafttools.set_consumable_uses(item, uses)` sets the remaining uses of a consumable to a new value. If the change results in the item's uses dropping below 1, an empty stack is returned. Otherwise, the modified item is returned.
+
+`crafttools.add_consumable_uses(item, add)` changes the remaining uses of a consumable by a given value. Negative numbers can be used to take uses from the item. If the change results in the item's uses dropping below 1, an empty stack is returned. Otherwise, the modified item is returned.
+
 ## What's the difference between craft tools and reusable consumables? When should I make an item a consumable instead of a tool?
 
 Apart from the aesthetic difference of the wear bar VS the remaining uses counter and that tools make a breaking sound once fully used up, the primary functional distinction between craft tools and reusable consumables is that craft tools are registered as tool items in the engine, meaning they use the same wear/durability system as normal tools and can be repaired if another mod introduces some method of repairing tools. Reusable consumables don't use actual wear (and are not actually tools at all) and so they can't be repaired in any way.

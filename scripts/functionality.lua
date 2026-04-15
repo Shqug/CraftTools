@@ -345,3 +345,75 @@ core.register_on_craft(function (item, player, old_craft_grid, craft_inv)
 	
 	return item
 end)
+
+-- Get the remaining uses and max uses of a reusable consumable
+function crafttools.get_consumable_uses (item)
+	local item = ItemStack(item)
+	
+	local itemname    = item: get_name()
+	local tooltype    = core.get_item_group(itemname, 'crafttools_tool_type')
+	local uses        = core.get_item_group(itemname, 'crafttools_tool_uses')
+	local unbreakable = core.get_item_group(itemname, 'crafttools_tool_unbreakable') == 1
+	
+	if tooltype == 2 then
+		if unbreakable then
+			return -1, -1
+		else
+			local meta = item: get_meta()
+			local used = meta: get_int 'crafttools_consumable_used' or 0
+			return uses - used, uses
+		end
+	else
+		return nil
+	end
+end
+
+-- Change the remaining uses of a reusable consumable to a specific amount
+function crafttools.set_consumable_uses (item, new_uses)
+	local item = ItemStack(item)
+	
+	local itemname    = item: get_name()
+	local tooltype    = core.get_item_group(itemname, 'crafttools_tool_type')
+	local uses        = core.get_item_group(itemname, 'crafttools_tool_uses')
+	local unbreakable = core.get_item_group(itemname, 'crafttools_tool_unbreakable') == 1
+	
+	if tooltype == 2 then
+		if not unbreakable then
+			local meta = item: get_meta()
+			local new_used = math.max(0, uses - new_uses)
+			meta: set_int('crafttools_consumable_used', new_used)
+			meta: set_string('count_meta', core.colorize(get_consumable_uses_color(uses, new_used), (uses - new_used) .. '/' .. uses))
+			
+			if new_used >= uses then
+				return ItemStack()
+			end
+		end
+	end
+	
+	return item
+end
+
+-- Change the remaining uses of a reusable consumable by a given amount
+function crafttools.add_consumable_uses (item, add)
+	local item = ItemStack(item)
+	
+	local itemname    = item: get_name()
+	local tooltype    = core.get_item_group(itemname, 'crafttools_tool_type')
+	local uses        = core.get_item_group(itemname, 'crafttools_tool_uses')
+	local unbreakable = core.get_item_group(itemname, 'crafttools_tool_unbreakable') == 1
+	
+	if tooltype == 2 then
+		if not unbreakable then
+			local meta = item: get_meta()
+			local used = math.max(0, meta: get_int 'crafttools_consumable_used' - add)
+			meta: set_int('crafttools_consumable_used', used)
+			meta: set_string('count_meta', core.colorize(get_consumable_uses_color(uses, used), (uses - used) .. '/' .. uses))
+			
+			if used >= uses then
+				return ItemStack()
+			end
+		end
+	end
+	
+	return item
+end
