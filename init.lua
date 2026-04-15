@@ -1,6 +1,6 @@
 
 crafttools = {
-	VERSION = '020100',
+	VERSION = '020102',
 	modpath = core.get_modpath 'crafttools',
 	gettext = core.get_translator 'crafttools'
 }

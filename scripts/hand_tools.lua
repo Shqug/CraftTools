@@ -230,6 +230,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 	core.register_on_craft(function (crafted, player, old_craft_grid, craft_inv)
 		if crafted: get_name() == 'crafttools:toolbox' then
 			local stored_items = {}
+			local stored_item_descriptions = {}
 			local combined_uses = 0
 			
 			for index, item in ipairs(old_craft_grid) do
@@ -239,6 +240,7 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 				
 				if tooltype == 1 then
 					table.insert(stored_items, item: to_string())
+					table.insert(stored_item_descriptions, item: get_short_description())
 					combined_uses = combined_uses + uses
 				end
 			end
@@ -247,6 +249,8 @@ if core.settings: get_bool('crafttools.enable_toolbox', true) then
 			local stored_string = core.serialize(stored_items)
 			meta: set_string('crafttools:toolbox_stored', stored_string)
 			meta: set_int('crafttools:uses_override', math.floor(combined_uses * 1.1))
+			local separator = '\n\t' .. core.get_color_escape_sequence('#ffcc00') .. '· '
+			meta: set_string('description', core.registered_items['crafttools:toolbox'].description .. separator .. table.concat(stored_item_descriptions, separator) .. core.get_color_escape_sequence('#ffffff'))
 		end
 	end)
 end
@@ -255,7 +259,7 @@ if core.settings: get_bool('crafttools.toolbox_allow_splitting', true) then
 	core.register_craftitem('crafttools:toolbox_uncraft_placeholder', {groups={not_in_creative_inventory = 1}})
 	
 	local input_stack = ItemStack 'crafttools:toolbox'
-	input_stack: get_meta(): set_string('description', input_stack: get_definition().description .. '\n' .. core.colorize('#ff3c00', crafttools.gettext 'Tools will be returned to the inventory'))
+	input_stack: get_meta(): set_string('description', input_stack: get_description() .. '\n' .. core.colorize('#ff3c00', crafttools.gettext 'Tools will be returned to the inventory'))
 	
 	core.register_craft {
 		type = 'shapeless',
