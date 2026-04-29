@@ -17,6 +17,6 @@ All of these features will be included in the mod in some form at some point, bu
  - [x] Marker for tools that causes them to not break on their last use, and instead become unusable until repaired (or recharged, for power tools)
  - [x] Replace reuse_exception system with generic overrides system
  - [x] Ability to have non-crafttool tools be treated as a craft tool for single recipes
- - [ ] Helper methods to reduce, increase, check uses of consumables
+ - [x] Helper methods to reduce, increase, check uses of consumables
  - [x] Ability to play a sound(s) on craft
  - [x] Ability to override tool/consumable uses via metadata
