@@ -11,6 +11,7 @@ All of these features will be included in the mod in some form at some point, bu
  - [x] Ability to separate intact toolbox back into constituent tools
  - [x] 'Repair Kit' consumable that restores durability to tools when crafted together (disabled by default)
  - [x] Make toolbox content & uses dynamic
+ - [ ] 'Ink & Quill' tool for making books, notes, labels; non-breaking, refill with black dye
 
 ## Functionality
 
