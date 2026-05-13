@@ -20,3 +20,4 @@ All of these features will be included in the mod in some form at some point, bu
  - [x] Helper methods to reduce, increase, check uses of consumables
  - [x] Ability to play a sound(s) on craft
  - [x] Ability to override tool/consumable uses via metadata
+ - [ ] Automatic generation of toolbox versions of recipes that use multiple crafttools, all of which are toolbox tools
