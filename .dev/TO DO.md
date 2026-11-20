@@ -22,3 +22,5 @@ All of these features will be included in the mod in some form at some point, bu
  - [x] Ability to play a sound(s) on craft
  - [x] Ability to override tool/consumable uses via metadata
  - [ ] Automatic generation of toolbox versions of recipes that use multiple crafttools, all of which are toolbox tools
+ - [ ] Have repair kit not work for tools with a `wear_represents` field
+ - [ ] Group or other marker specifically for indicating a tool item should not be repairable via the repair kit even when `wear_represents` is not set

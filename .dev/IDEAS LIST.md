@@ -4,8 +4,6 @@ Most of these concepts will probably make it into the mod at some point, althoug
 
 ## Content
 
- - Boxes of nails / nuts and bolts as consumables
-
 ## Functionality
 
  - Definition field for consumables allowing their `inventory_image` texture to change via meta based on their remaining uses
